@@ -1,6 +1,7 @@
 #include"listUpdaters.cuh"
 #include"vec_utils.h"
 #include"cudaerror.h"
+#include<stdio.h>
 
 __global__ void possibleListUpdater_kernel(d_Data data, Parameters params, IndexStruct select)
 {
@@ -29,10 +30,10 @@ void ListUpdater::update(IndexStruct select)
 {
     int grid_size;
     if(select.index_count > 0)
-        grid_size = select.index_count/params->block_size+1;
+        grid_size = select.index_count/params.block_size+1;
     else
-        grid_size = data->atom_count/params->block_size+1;
-    possibleListUpdater_kernel<<<grid_size, params->block_size>>>(data->d_data, *params, select);
+        grid_size = data.atom_count/params.block_size+1;
+    possibleListUpdater_kernel<<<grid_size, params.block_size>>>(data, params, select);
     cudaDeviceSynchronize();
     checkCUDAError(__LINE__,__FILE__);
 }

@@ -4,11 +4,11 @@
 #include"parameters.h"
 class ListUpdater
 {
-    Parameters *params;
-    Data *data;
+    Parameters params;
+    d_Data data;
 public:
     void update(IndexStruct select = {-1, NULL});
-    ListUpdater(Data *_data, Parameters *_params) : data(_data), params(_params)
+    ListUpdater(d_Data _data, Parameters _params) : data(_data), params(_params)
     {
     };
 

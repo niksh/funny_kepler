@@ -8,5 +8,4 @@ struct Parameters
     int maxpossiblepairs;
     int block_size;
     int device;
-    long int seed;
 };
