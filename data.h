@@ -1,7 +1,8 @@
 #ifndef DATA_H
 #define DATA_H
 
-enum Types {TYPENONE = -1, TYPEA, TYPEB, TYPEC, TYPED, TYPEE, TYPEF, TYPEG, TYPEH, TYPEI};
+#define TYPENONE -1
+#define TYPEA 0
 
 struct IndexStruct
 {
@@ -11,11 +12,11 @@ struct IndexStruct
 
 struct d_Data
 {
-    float3 *c;
+    int3 *c;
     int *t;
     int *possiblePairsCount;
-    int *possiblePairs;
     int atom_count;
+    int block_size;
 };
 
 #endif
